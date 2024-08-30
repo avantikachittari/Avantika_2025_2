@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-Creator of Student 2025
+Creator of Avantika_2025_2
