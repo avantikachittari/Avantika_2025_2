@@ -4,6 +4,14 @@ title: About
 permalink: /about/
 ---
 
+## As a conversation Starter
+
+Here are some places I have lived.
+
+<comment>
+Flags are made using Wikipedia images
+</comment>
+
 <style>
     /* Style looks pretty compact, 
        - grid-container and grid-item are referenced the code 
@@ -39,9 +47,10 @@ permalink: /about/
     }
 </style>
 
-Conversation starters
-
-Here are some places I have lived. I lived in India until 3 years of age, Then I moved to Tucson, Arizona and lived there for 9 months, then at last I moved to California at age 4 and I have lived here ever since!
+<!-- This grid_container class is used by CSS styling and the id is used by JavaScript connection -->
+<div class="grid-container" id="grid_container">
+    <!-- content will be added here by JavaScript -->
+</div>
 
 <script>
     // 1. Make a connection to the HTML container defined in the HTML div
@@ -50,10 +59,10 @@ Here are some places I have lived. I lived in India until 3 years of age, Then I
     // 2. Define a JavaScript object for our http source and our data rows for the Living in the World grid
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
-        {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California - forever"},
-        {"flag": "b/b9/Flag_of_Oregon.svg", "greeting": "Hi", "description": "Oregon - 9 years"},
-        {"flag": "b/be/Flag_of_England.svg", "greeting": "Alright mate", "description": "England - 2 years"},
-        {"flag": "e/ef/Flag_of_Hawaii.svg", "greeting": "Aloha", "description": "Hawaii - 2 years"},
+        {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California- Lived since 2014"},
+        {"flag": "4/41/Flag_of_India.svg", "greeting": "Namaste/Vannakam", "description": "India- Born here in 2010 and lived until 2013"},
+        {"flag": "9/9d/Flag_of_Arizona.svg", "greeting": "Hello", "description": "Arizona- Lived in 2013 for 9 months"},
+        {"flag": "c/cf/Flag_of_Canada.svg", "greeting": "hey", "description": "Canada- My Cousins live here and I have visited a few times"},
     ];
 
     // 3a. Consider how to update style count for size of container
@@ -87,18 +96,8 @@ Here are some places I have lived. I lived in India until 3 years of age, Then I
     }
 </script>
 
-<div class="grid-container" id="grid_container">
-    <!-- content will be added here by JavaScript -->
+### Journey through Life
+
+I lived in 2 different countries. I like to crochet, bike, and bake in my free time. I can speak 3 languages and read and write 2 languages. My favorite season is summer. My birthday is 07/01/2010. I have one younger brother named Aryav who is 5 years younger than me. I like to travel to different National Parks.
+
 </div>
-
-
-<!--
-![India!](/images/Flag_of_India.png "Flag of India")
-
-<img src="/images/Flag_of_India.png" width="200" height="100">
-I 
->
-
-
-Flag of Arizona
-Flag of California
