@@ -19,7 +19,7 @@ Here’s some content before the submenu.
         <td><a href="{{site.baseurl}}/nav/intro/intro">Intro</a></td>
         <td><a href="{{site.baseurl}}/nav/design/design">Design</a></td>
         <td><a href="{{site.baseurl}}/nav/Ideas">Ideas</a></td>
-        <td><a href="{{site.baseurl}}/nav/Snake">Snake</a></td>
+        <td><a href="{{site.baseurl}}/nav/Snake">Snake Game</a></td>
 </div>
 <!-- End submenu -->
 
