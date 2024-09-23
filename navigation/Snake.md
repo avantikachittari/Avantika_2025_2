@@ -3,6 +3,7 @@ layout: page
 title: Snake
 permalink: /Snake/
 Future Home of Snake
+
 <style>
 
     body{
@@ -367,4 +368,3 @@ Future Home of Snake
         }
     })();
 </script>
-
