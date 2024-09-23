@@ -18,8 +18,8 @@ Here’s some content before the submenu.
     <td><img src="{{site.baseurl}}/images/logo.png" height="60" title="Submenu Navigation with direct code" alt=""></td>
         <td><a href="{{site.baseurl}}/nav/intro/intro">Intro</a></td>
         <td><a href="{{site.baseurl}}/nav/design/design">Design</a></td>
-        <td><a href="{{site.baseurl}}/nav/Ideas">Ideas</a></td>
-        <td><a href="{{site.baseurl}}/nav/Snake">Snake Game</a></td>
+        <td><a href="{{site.baseurl}}/nav/ideas">Ideas</a></td>
+        <td><a href="{{site.baseurl}}/nav/snake">Snake Game</a></td>
 </div>
 <!-- End submenu -->
 
