@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Ideas
-permalink: /Ideas
+permalink: /nav/ideas
 ---
 
 ## As a conversation Starter

@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Snake
-permalink: /Snake/
+permalink: /nav/snake
+---
 Future Home of Snake
 
 <style>
