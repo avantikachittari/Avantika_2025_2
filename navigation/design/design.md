@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Design
-permalink: /nav/design
+permalink: /design/
 ---
 
 Design details

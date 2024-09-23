@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /about/
+permalink: /ideas/
 ---
 
 ## As a conversation Starter
@@ -100,11 +100,4 @@ Flags are made using Wikipedia images
 
 I lived in 2 different countries. I like to crochet, bike, and bake in my free time. I can speak 3 languages and read and write 2 languages. My favorite season is summer. My birthday is 07/01/2010. I have one younger brother named Aryav who is 5 years younger than me. I like to travel to different National Parks.
 
-<script src="https://utteranc.es/client.js"
-        repo="avantikachittari/Avantika_2025_2"
-        issue-term="pathname"
-        label="Utterances"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
+</div>
