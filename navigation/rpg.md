@@ -10,7 +10,7 @@ permalink: /rpg/
     import GameControl from '{{site.baseurl}}/assets/js/rpg/GameControl.js';
 
     // Background data
-    const image_src = "{{site.baseurl}}/images/rpg/water.png";
+    const image_src = "{{site.baseurl}}/images/rpg/sky.jpg";
     const image_data = {
         pixels: {height: 580, width: 1038}
     };
@@ -22,7 +22,7 @@ permalink: /rpg/
         SCALE_FACTOR: 10,
         STEP_FACTOR: 1000,
         ANIMATION_RATE: 50,
-        pixels: {height: 280, width: 256},
+        pixels: {height: 256   , width: 280},
         orientation: {rows: 4, columns: 3 },
         down: {row: 0, start: 0, columns: 3 },
         left: {row: 1, start: 0, columns: 3 },
