@@ -50,11 +50,11 @@ Here’s some content before the submenu.
     <div>
         <h4>About Me</h4>
         <p>I am interested in Compsci.</p>
-        <img alt="A sample image" src="https://via.placeholder.com/150" width="150" height="150">
+    
     </div>
 
     <div>
-        <button onclick="alert('Thank you for subscribing!')">Subscribe</button>
+        <button onclick="alert('Thank you for pressing this button!')">Subscribe</button>
     </div>
 
 </body>
