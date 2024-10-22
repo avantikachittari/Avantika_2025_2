@@ -59,10 +59,43 @@ Here’s some content before the submenu.
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Homepage</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #001f3f; /* Navy background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        a {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #fff; /* White button */
+            color: #001f3f; /* Navy text */
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        a:hover {
+            background-color: #f4f4f9; /* Light gray on hover */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.yourhomepage.com" target="_blank">Visit My Homepage</a>
+</body>
+</html>
 
-
- 
-
-
-
-    
