@@ -41,9 +41,9 @@ Here’s some content before the submenu.
         <h4>My Projects</h4>
         <p>Check out my latest projects:</p>
         <ul>
-            <li><a href="https://www.example.com/project1">Project 1</a></li>
-            <li><a href="https://www.example.com/project2">Project 2</a></li>
-            <li><a href="https://www.example.com/project3">Project 3</a></li>
+            <li><a href="https://www.example.com/project1">Turtle game</a></li>
+            <li><a href="https://www.example.com/project2">Snake game</a></li>
+            <li><a href="https://www.example.com/project3">RPG game0.1</a></li>
         </ul>
     </div>
 
