@@ -1,6 +1,6 @@
 ---
 layout: base
-title: RPG
+title: RPGx
 permalink: /rpg0x/
 ---
 
