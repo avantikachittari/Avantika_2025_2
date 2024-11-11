@@ -36,6 +36,9 @@ class NpcFrog extends GameObject {
             case 'u':  // Player 2 
                 this.checkProximityToNPC();
                 break;
+            default:
+                this.checkProximityToNPC();
+                break;                
         }
     }
 

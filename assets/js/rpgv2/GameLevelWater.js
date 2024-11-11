@@ -3,6 +3,7 @@ import GameEnv from './GameEnv.js';
 import Background from './Background.js';
 import PlayerOne from './PlayerOne.js';
 import PlayerTwo from './PlayerTwo.js';
+import PlayerThree from './PlayerThree.js';
 import NpcFrog from './NpcFrog.js';
 
 
@@ -16,11 +17,11 @@ class GameLevelWater {
     let height = GameEnv.innerHeight;
 
     // Background data
-    const image_src_water = path + "/images/rpg/water.png";
+    const image_src_water = path + "/images/rpg/water_background.jpg";
     const image_data_water = {
         name: 'water',
         src: image_src_water,
-        pixels: {height: 580, width: 1038}
+        pixels: {height: 1800, width: 2880}
     };
 
     // Player 1 sprite data (turtle)
@@ -46,7 +47,7 @@ class GameLevelWater {
     const sprite_data_fish = {
         name: 'fish',
         src: sprite_src_fish,
-        SCALE_FACTOR: 16,
+        SCALE_FACTOR: 10,
         STEP_FACTOR: 400,
         ANIMATION_RATE: 50,
         pixels: {height: 256, width: 384},
@@ -57,6 +58,23 @@ class GameLevelWater {
         right: {row: 2, start: 0, columns: 3 }, // 3rd row
         up: {row: 3, start: 0, columns: 3 },    // 4th row
     };
+
+      // Player 3 sprite data (fish)
+      const sprite_src_fish2 = path + "/images/rpg/fishies.png";
+      const sprite_data_fish2 = {
+          name: 'fish2',
+          src: sprite_src_fish2,
+          SCALE_FACTOR: 10,
+          STEP_FACTOR: 400,
+          ANIMATION_RATE: 50,
+          pixels: {height: 256, width: 384},
+          INIT_POSITION: { x: 50, y: 50 },
+          orientation: {rows: 8, columns: 12 },
+          down: {row: 0, start: 6, columns: 3 },  // 1st row
+          left: {row: 1, start: 6, columns: 3 },  // 2nd row
+          right: {row: 2, start: 6, columns: 3 }, // 3rd row
+          up: {row: 3, start: 6, columns: 3 },    // 4th row
+      };
 
     // NPC sprite data (frog)
     const sprite_src_frog = path + "/images/rpg/fishies.png";
@@ -76,6 +94,7 @@ class GameLevelWater {
       { class: Background, data: image_data_water },
       { class: PlayerOne, data: sprite_data_turtle },
       { class: PlayerTwo, data: sprite_data_fish },
+      { class: PlayerThree, data: sprite_data_fish2 },
       { class: NpcFrog, data: sprite_data_frog }
     ];
   }
