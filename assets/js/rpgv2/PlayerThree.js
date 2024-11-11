@@ -69,8 +69,15 @@ class PlayerThree extends GameObject {
                     );
                     // The distance is less than 100 pixels
                     if (distance <= 10) {
-                        this.velocity.x=0;
-                        this.velocity.y=0;
+                        if (true //Math.abs(this.velocity.x)>0 && Math.abs(this.velocity.y)>0
+                            ){
+
+                            this.velocity.x=0;
+                            this.velocity.y=0;
+                            var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3');
+                            audio.play();
+                        }
+
                     }
                     else {
                         this.velocity.x = deltax/50
@@ -84,5 +91,7 @@ class PlayerThree extends GameObject {
 
     }
 }
+
+
 
 export default PlayerThree;
