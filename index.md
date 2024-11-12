@@ -39,12 +39,24 @@ Here’s some content before the submenu.
     <h4>My Projects</h4>
     <p>Check out my latest projects:</p>
     <ul>
-        <li><a href="https://www.example.com/project1">Turtle game</a></li>
-        <li><a href="https://www.example.com/project2">Snake game</a></li>
-        <li><a href="https://www.example.com/project3">RPG game0.1</a></li>
+        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpg/">Snake Game</a></li>
+        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpg/">RPG</a></li>
+        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpgv1/">RPGv1</a></li>
+        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpgv2/">RPGv2 modified</a></li>
+        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpgv3/">RPGv3</a></li>
     </ul>
 </div>
-
+<div id="mystyle">
+    <h4>My Homework</h4>
+    <p>Check out my Homework:</p>
+    <ul>
+        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpg/">Snake Game</a></li>
+        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpg/">RPG</a></li>
+        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpgv1/">RPGv1</a></li>
+        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpgv2/">RPGv2 modified</a></li>
+        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpgv3/">RPGv3</a></li>
+    </ul>
+</div>
 
 <div>
     <h4>About Me</h4>
