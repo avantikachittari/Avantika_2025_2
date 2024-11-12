@@ -50,11 +50,11 @@ Here’s some content before the submenu.
     <h4>My Homework</h4>
     <p>Check out my Homework:</p>
     <ul>
-        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpg/">Snake Game</a></li>
-        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpg/">RPG</a></li>
-        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpgv1/">RPGv1</a></li>
-        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpgv2/">RPGv2 modified</a></li>
-        <li><a href="https://avantikachittari.github.io/Avantika_2025_2/rpgv3/">RPGv3</a></li>
+        <li><a href="https://github.com/avantikachittari/Avantika_2025_2/tree/main/_notebooks/Sprint2/Data_Abstractions">Data Abstraction</a></li>
+        <li><a href="https://github.com/avantikachittari/Avantika_2025_2/tree/main/_notebooks/Sprint2/Conditions">Conditinals</a></li>
+        <li><a href="https://github.com/avantikachittari/Avantika_2025_2/tree/main/_notebooks/Sprint2/Classes_and_Methods">Classes & Methods</a></li>
+        <li><a href="https://github.com/avantikachittari/Avantika_2025_2/blob/main/_layouts/Variables/2024-10-28-variables_hw.ipynb">Variables</a></li>
+        <li><a href="https://github.com/avantikachittari/Avantika_2025_2/tree/main/_layouts/Mathematic_Expressions">Mathematic Expressions</a></li>
     </ul>
 </div>
 
