@@ -8,3 +8,7 @@ Sprint 2 Blog
 Integration issue link
 
 <a href="https://github.com/avantikachittari/Avantika_2025_2/issues/3">Link to my Sprint 2 issue</a>
+Week 19 blog
+- Help system is finished 
+- As per teacher recommendation we made plan of changes instead of just making changes to the game without a certain reason
+- 
