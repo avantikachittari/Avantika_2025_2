@@ -14,7 +14,7 @@ class GameLevelDesert {
 
 
     // Background data
-    const image_src_desert = path + "/images/gamify/desert.png"; // be sure to include the path
+    const image_src_desert = path + "/images/gamify/cave.png"; // be sure to include the path
     const image_data_desert = {
         name: 'desert',
         greeting: "Welcome to the desert!  It is hot and dry here, but there are many adventures to be had!",
@@ -46,16 +46,16 @@ class GameLevelDesert {
 
 
     // NPC data for Tux 
-    const sprite_src_tux = path + "/images/gamify/tux.png"; // be sure to include the path
+    const sprite_src_tux = path + "/images/gamify/bat.png"; // be sure to include the path
     const sprite_data_tux = {
         id: 'Tux',
         greeting: "Hi I am Tux, the Linux mascot.  I am very happy to spend some linux shell time with you!",
         src: sprite_src_tux,
-        SCALE_FACTOR: 8,  // Adjust this based on your scaling needs
+        SCALE_FACTOR: 15,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 50,
-        pixels: {height: 256, width: 352},
+        pixels: {height: 188, width: 188},
         INIT_POSITION: { x: (width / 2), y: (height / 2)},
-        orientation: {rows: 8, columns: 11 },
+        orientation: {rows: 12, columns: 5 },
         down: {row: 5, start: 0, columns: 3 },  // This is the stationary npc, down is default 
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
         // Linux command quiz
@@ -79,16 +79,16 @@ class GameLevelDesert {
 
 
       // NPC data for Octocat
-      const sprite_src_octocat = path + "/images/gamify/octocat.png"; // be sure to include the path
+      const sprite_src_octocat = path + "/images/gamify/spider.png"; // be sure to include the path
       const sprite_data_octocat = {
         id: 'Octocat',
         greeting: "Hi I am Octocat! I am the GitHub code code code collaboration mascot",
         src: sprite_src_octocat,
-        SCALE_FACTOR: 10,  // Adjust this based on your scaling needs
+        SCALE_FACTOR: 25,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 50,
-        pixels: {height: 301, width: 801},
+        pixels: {height: 750, width: 163},
         INIT_POSITION: { x: (width / 4), y: (height / 4)},
-        orientation: {rows: 1, columns: 4 },
+        orientation: {rows: 4, columns: 4 },
         down: {row: 0, start: 0, columns: 3 },  // This is the stationary npc, down is default 
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.1 },
         // GitHub command quiz 
