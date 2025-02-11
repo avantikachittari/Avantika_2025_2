@@ -30,3 +30,16 @@ Avantika Chittari
 **Week 20**
 - [ ] Change diamond to seashell
 - [ ] Add message and an npc
+
+
+**AdventureGame**
+
+2/3/25
+Added the bat.png and the spider enemy however the bat if yet to be added into the game. We were also working on the the draw.io and included the is a has a with Lara. 
+
+2/4/25 
+Today we finished our draw.io picture along with adding the bat enemy and starting to add the helpful fish in the pond. We also made our detailed plan for the second level for the game
+
+2/5/25
+We presented
+

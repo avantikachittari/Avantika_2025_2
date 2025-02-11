@@ -48,12 +48,12 @@ class GameLevelDesert {
     // NPC data for Tux 
     const sprite_src_tux = path + "/images/gamify/bat.png"; // be sure to include the path
     const sprite_data_tux = {
-        id: 'Tux',
-        greeting: "Hi I am Tux, the Linux mascot.  I am very happy to spend some linux shell time with you!",
+        id: 'Bat',
+        greeting: "Hi I am a bat",
         src: sprite_src_tux,
-        SCALE_FACTOR: 15,  // Adjust this based on your scaling needs
+        SCALE_FACTOR: 10,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 50,
-        pixels: {height: 188, width: 188},
+        pixels: {height: 1200, width: 1000},
         INIT_POSITION: { x: (width / 2), y: (height / 2)},
         orientation: {rows: 12, columns: 5 },
         down: {row: 5, start: 0, columns: 3 },  // This is the stationary npc, down is default 
@@ -81,12 +81,12 @@ class GameLevelDesert {
       // NPC data for Octocat
       const sprite_src_octocat = path + "/images/gamify/spider.png"; // be sure to include the path
       const sprite_data_octocat = {
-        id: 'Octocat',
-        greeting: "Hi I am Octocat! I am the GitHub code code code collaboration mascot",
+        id: 'Spider',
+        greeting: "Hi I am a spider",
         src: sprite_src_octocat,
-        SCALE_FACTOR: 25,  // Adjust this based on your scaling needs
+        SCALE_FACTOR: 15,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 50,
-        pixels: {height: 750, width: 163},
+        pixels: {height: 655, width: 390},
         INIT_POSITION: { x: (width / 4), y: (height / 4)},
         orientation: {rows: 4, columns: 4 },
         down: {row: 0, start: 0, columns: 3 },  // This is the stationary npc, down is default 
@@ -110,17 +110,17 @@ class GameLevelDesert {
     }
   
 
-    const sprite_src_robot = path + "/images/gamify/robot.png"; // be sure to include the path
+    const sprite_src_robot = path + "/images/rpg/fishies.png"; // be sure to include the path
     const sprite_data_robot = {
-        id: 'Robot',
-        greeting: "Hi I am Robot, the Jupyter Notebook mascot.  I am very happy to spend some linux shell time with you!",
+        id: 'Fish',
+        greeting: "Hi I am a magical fish, I can help you!",
         src: sprite_src_robot,
-        SCALE_FACTOR: 10,  // Adjust this based on your scaling needs
+        SCALE_FACTOR: 16,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 100,
-        pixels: {height: 316, width: 627},
-        INIT_POSITION: { x: (width * 3 / 4), y: (height * 3 / 4)},
-        orientation: {rows: 3, columns: 6 },
-        down: {row: 1, start: 0, columns: 6 },  // This is the stationary npc, down is default 
+        pixels: {height: 256, width: 384},
+        INIT_POSITION: { x: (width * 1 / 4), y: (height * 3 / 4)},
+        orientation: {rows: 8, columns: 12 },
+        down: {row: 0, start: 0, columns: 6 },  // This is the stationary npc, down is default 
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
         // Linux command quiz
         quiz: { 
