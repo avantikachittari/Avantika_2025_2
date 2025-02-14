@@ -1,0 +1,99 @@
+import GameEnv from './GameEnv.js';
+import Background from './Background.js';
+import Player from './Player.js';
+import Npc from './Npc.js';
+import Bat from './bat.js';
+import Spider from './Spider.js';
+
+class GameLevelDesert {
+  constructor(path, canvas) {  // Accept `canvas` as an argument
+    let width = GameEnv.innerWidth;
+    let height = GameEnv.innerHeight;
+
+    // Background data
+    const image_src_desert = path + "/images/gamify/desert.png"; // be sure to include the path
+    const image_data_desert = {
+        name: 'desert',
+        greeting: "Welcome to the desert!  It is hot and dry here, but there are many adventures to be had!",
+        src: image_src_desert,
+        pixels: {height: 580, width: 1038}
+    };
+
+    // Player Data
+    const sprite_src_chillguy = path + "/images/gamify/you.png";
+    console.log(`Loading player sprite from: ${sprite_src_chillguy}`); // Log image path
+    const CHILLGUY_SCALE_FACTOR = 5;
+    const sprite_data_chillguy = {
+      id: 'Chill Guy',
+      greeting: "Hi I am Chill Guy, the desert wanderer. I am looking for wisdom and adventure!",
+      src: sprite_src_chillguy,
+      SCALE_FACTOR: CHILLGUY_SCALE_FACTOR,
+      STEP_FACTOR: 1000,
+      ANIMATION_RATE: 50,
+      INIT_POSITION: { x: 0, y: height - (height / CHILLGUY_SCALE_FACTOR) },
+      pixels: { height: 256, width: 192 },
+      orientation: { rows: 4, columns: 3 },
+      down: { row: 0, start: 0, columns: 3 },
+      left: { row: 1, start: 0, columns: 3 },
+      right: { row: 2, start: 0, columns: 3 },
+      up: { row: 3, start: 0, columns: 3 },
+      hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
+      keypress: { up: 87, left: 65, down: 83, right: 68 } // W, A, S, D
+    };
+
+    // NPC Data
+    const sprite_src_tux = path + "/images/gamify/bat.png";
+    console.log(`Loading NPC sprite from: ${sprite_src_tux}`); // Log image path
+    const sprite_data_tux = {
+      id: 'Bat',
+      greeting: "I will kill you!",
+      src: sprite_src_tux,
+      SCALE_FACTOR: 10,
+      ANIMATION_RATE: 50,
+      pixels: { height: 1200, width: 1000 },
+      INIT_POSITION: { x: width / 2, y: height / 2 },
+      orientation: { rows: 12, columns: 5 },
+      down: { row: 5, start: 0, columns: 3 },
+      hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
+    };
+
+    const sprite_src_octocat = path + "/images/gamify/spider.png";
+    console.log(`Loading NPC sprite from: ${sprite_src_octocat}`); // Log image path
+    const sprite_data_octocat = {
+      id: 'Spider',
+      greeting: "Hi I am a spider",
+      src: sprite_src_octocat,
+      SCALE_FACTOR: 15,
+      ANIMATION_RATE: 50,
+      pixels: { height: 655, width: 390 },
+      INIT_POSITION: { x: width / 4, y: height / 4 },
+      orientation: { rows: 4, columns: 4 },
+      down: { row: 0, start: 0, columns: 3 },
+      hitbox: { widthPercentage: 0.1, heightPercentage: 0.1 },
+    };
+
+    // Create instances of Bat and Spider using `canvas`
+    const bat = new Bat(canvas, sprite_src_tux, sprite_data_tux, 0.5, 0.5, 'Bat', 100);
+    const spider = new Spider(canvas, sprite_src_octocat, sprite_data_octocat, 0.25, 0.25, 'Spider', 50);
+
+    // Objects list
+    this.objects = [
+      { instance: new Background(image_data_desert) },
+      { instance: new Player(sprite_data_chillguy) },
+      { instance: new Npc(sprite_data_tux) },
+      { instance: new Npc(sprite_data_octocat) },
+      { instance: bat },  // Now using `instance`
+      { instance: spider } // Now using `instance`
+    ];
+  }
+
+  // Update & Render Method
+  updateAndRender(ctx) {
+    this.objects.forEach(obj => {
+      obj.instance.update();
+      obj.instance.render(ctx);
+    });
+  }
+}
+
+export default GameLevelDesert;
