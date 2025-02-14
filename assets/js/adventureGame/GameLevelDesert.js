@@ -49,7 +49,7 @@ class GameLevelDesert {
     console.log(`Loading NPC sprite from: ${sprite_src_bat}`); // Log image path
     const sprite_data_bat = {
       id: 'Bat',
-      greeting: "I will kill you!",
+      greeting: "I will kill you!!!!",
       src: sprite_src_bat,
       SCALE_FACTOR: 10,
       ANIMATION_RATE: 50,
@@ -64,7 +64,7 @@ class GameLevelDesert {
     console.log(`Loading NPC sprite from: ${sprite_src_spider}`); // Log image path
     const sprite_data_spider = {
       id: 'Spider',
-      greeting: "Hi I am a spider",
+      greeting: "Time to dieeeee-",
       src: sprite_src_spider,
       SCALE_FACTOR: 15,
       ANIMATION_RATE: 50,
@@ -78,7 +78,7 @@ class GameLevelDesert {
     const sprite_src_robot = path + "/images/rpg/fishies.png"; // be sure to include the path
     const sprite_data_robot = {
         id: 'Fish',
-        greeting: "Want to get out of this cave? You must run fast so the bat wont kill you and make sure you don't get too close to the Spider...",
+        greeting: "Want to get out of this cave? You must run fast so the bat wont kill you and make sure you don't get too close to the Spider ;)",
         src: sprite_src_robot,
         SCALE_FACTOR: 16,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 100,
