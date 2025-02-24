@@ -4,6 +4,7 @@ import Player from './Player.js';
 import Npc from './Npc.js';
 import Bat from './Bat.js';
 import Spider from './Spider.js';
+import Exit from './exit.js';
 //import Spider from './Spider.js';
 
 class GameLevelDesert {
@@ -18,7 +19,7 @@ class GameLevelDesert {
         name: 'Desert',
         greeting: "Welcome to the cave!  It is wet and must!",
         src: image_src_desert,
-        pixels: {height: 580, width: 1038}
+        pixels: {height: 1062, width: 1867}
     };
 
     // Player Data
@@ -75,10 +76,24 @@ class GameLevelDesert {
       hitbox: { widthPercentage: 0.3, heightPercentage: 0.3 },
     };
 
+    const sprite_src_exit = path + "/images/gamify/wizard.png";
+    console.log(`Loading NPC sprite from: ${sprite_src_exit}`); // Log image path
+    const sprite_data_exit = {
+      id: 'Exit',
+      src: sprite_src_exit,
+      SCALE_FACTOR: 15,
+      ANIMATION_RATE: 50,
+      pixels: { height: 185, width: 163 },
+      INIT_POSITION: { x: width * 0.7 , y: height * 0.53 },
+      orientation: { rows: 1, columns: 1 },
+      down: { row: 0, start: 0, columns: 1 },
+      hitbox: { widthPercentage: 0.1, heightPercentage: 0.1},
+    };
+
     const sprite_src_robot = path + "/images/rpg/fishies.png"; // be sure to include the path
     const sprite_data_robot = {
         id: 'Fish',
-        greeting: "Want to get out of this cave? You must run fast so the bat wont kill you and make sure you don't get too close to the Spider ;)",
+        greeting: "Hi I am your game wizard.  I am very happy to share my knowledge with you! \nWant to get out of this cave? You must run fast so the bat wont kill you and make sure you don't get too close to the Spider ;) \nPress key 'e' or 'u' for learning",
         src: sprite_src_robot,
         SCALE_FACTOR: 16,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 100,
@@ -89,19 +104,13 @@ class GameLevelDesert {
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
         // Linux command quiz
         quiz: { 
-          title: "Jupyter Notebook Command Quiz",
-          questions: [
-            "Which shortcut is used to run a cell in Jupyter Notebook?\n1. Shift + Enter\n2. Ctrl + Enter\n3. Alt + Enter\n4. Tab + Enter",
-            "Which shortcut adds a new cell above the current cell?\n1. A\n2. B\n3. C\n4. D",
-            "Which shortcut adds a new cell below the current cell?\n1. B\n2. A\n3. C\n4. D",
-            "Which shortcut changes a cell to Markdown format?\n1. M\n2. Y\n3. R\n4. K",
-            "Which shortcut changes a cell to Code format?\n1. Y\n2. M\n3. C\n4. D",
-            "Which shortcut deletes the current cell?\n1. D, D\n2. X\n3. Del\n4. Ctrl + D",
-            "Which shortcut saves the current notebook?\n1. Ctrl + S\n2. Alt + S\n3. Shift + S\n4. Tab + S",
-            "Which shortcut restarts the kernel?\n1. 0, 0\n2. R, R\n3. K, K\n4. Shift + R",
-            "Which shortcut interrupts the kernel?\n1. I, I\n2. Ctrl + C\n3. Shift + I\n4. Alt + I",
-            "Which shortcut toggles line numbers in a cell?\n1. L\n2. N\n3. T\n4. G"
-          ] 
+          title: "Wizard Quiz",
+          questions: [ "What do you wish to earn today?\n1. Wisdom\n2. Gold\n3. Power\n4. Fame",
+            "How do you plan to earn it?\n1. Study\n2. Work\n3. Steal\n4. Cheat",
+            "What will you do with it?\n1. Share\n2. Keep\n3. Spend\n4. Waste",
+            "Why do you seek it?\n1. Knowledge\n2. Wealth\n3. Control\n4. Attention",
+            "When will you know you have it?\n1. Never\n2. Always\n3. Sometimes\n4. Later"
+]
         }
       };
 
@@ -113,9 +122,10 @@ class GameLevelDesert {
     this.objects = [
       { class: Background, data: image_data_desert },
       { class: Player, data: sprite_data_chillguy },
-      { class: Bat, data: sprite_data_bat },
+      { class: Npc, data: sprite_data_bat },
       { class: Spider, data: sprite_data_spider },
       { class: Npc, data: sprite_data_robot },
+      { class: Exit, data: sprite_data_exit },
     ];
   }
 

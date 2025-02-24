@@ -66,7 +66,8 @@ const GameControl = {
         GameEnv.gameObjects = [];
         this.currentPass = 0;
         const LevelClass = this.levelClasses[this.currentLevelIndex];
-        const levelInstance = new LevelClass(this.path);
+        //const levelInstance = new LevelClass(this.path);
+        const levelInstance = new LevelClass(this.path, GameEnv.canvas); // Pass the canvas to the level instance
         this.loadLevelObjects(levelInstance);
     },
     

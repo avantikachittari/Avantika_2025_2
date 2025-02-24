@@ -1,191 +1,115 @@
 import Character from './Character.js';
 import GameEnv from './GameEnv.js';
-import GameControl from './GameControl.js';
+import Player from './Player.js';
 
-export class Enemy extends Character {
-    constructor(canvas, image, data, xPercentage, yPercentage, name, minPosition, range = 300, safeDistance = 200) {
-        super(canvas, image, data);
-
-        this.name = name; // Name of the Enemy
-        this.y = yPercentage; // Y-coordinate
-        this.x = xPercentage * GameEnv.innerWidth; // Initial X-coordinate
-
-        // Initial range boundaries (relative to the starting position)
-        this.originalMinPosition = this.x - range; // Minimum range boundary
-        this.originalMaxPosition = this.x + range; // Maximum range boundary
-
-        // Minimum safe distance to maintain from the player
-        this.safeDistance = safeDistance;
-
-        this.immune = 0; // Immunity status
-
-        // Base movement speed of the Enemy
-        this.speed = 3;
-
-        // Unique movement modifier for asynchronous behavior
-        // Ensures that each Enemy moves with a slightly different speed
-        this.movementModifier = Math.random() * 2 + 0.5; // Speed multiplier between 0.5x and 2.5x
+class Enemy extends Character {
+    constructor(data = null) {
+        super(data);
+        this.playerFound = false;
+        this.playerDestroyed = false;
     }
 
     /**
-     * Dynamically adjust the movement range to maintain a safe distance
-     * from the player's current position.
-     */
-    updateMovementRange() {
-        // Get the current X position of the player (default to 0 if not available)
-        const playerX = GameEnv.player.x || 0;
-
-        // Adjusted range to maintain safe distance from the player
-        const adjustedMinPosition = playerX + this.safeDistance;
-        const adjustedMaxPosition = playerX - this.safeDistance;
-
-        // Calculate the final movement range while ensuring boundaries
-        this.minPosition = Math.max(this.originalMinPosition, adjustedMinPosition);
-        this.maxPosition = Math.min(this.originalMaxPosition, adjustedMaxPosition);
-
-        // Fallback: If the adjusted range becomes invalid (max < min),
-        // revert to the original range to prevent disappearing sprites
-        if (this.maxPosition <= this.minPosition) {
-            this.minPosition = this.originalMinPosition;
-            this.maxPosition = this.originalMaxPosition;
-        }
-    }
-
-    /**
-     * Update the Enemy's position and handle its movement.
-     * This method is called every frame.
+     * Override the update method to draw the Enemy.
      */
     update() {
-        super.update();
+        // Update begins by drawing the object
+        this.draw();
 
-        // Adjust the Enemy's movement using its unique movement multiplier
-        this.x += this.speed * this.movementModifier;
-
-        // Update the Enemy's movement range dynamically
-        this.updateMovementRange();
-
-        // Reverse direction when the Enemy hits its movement boundaries
-        if (this.x <= this.minPosition || this.x >= this.maxPosition) {
-            this.reverseDirection();
-        }
-
-        // Handle random events
-        // Event 2: Stop all Enemies
-        if (GameControl.randomEventId === 2 && GameControl.randomEventState === 1) {
-            this.speed = 0; // Stop movement
-            if (this.name === "enemySpecial") {
-                GameControl.endRandomEvent();
+        if (!this.playerDestroyed) {
+            this.checkProximityToPlayer();
+            if(this.collisionChecks()){
+                this.handleCollisionEvent();
             }
+
         }
 
-        // Event 3: Kill a random Enemy
-        if (GameControl.randomEventId === 3 && GameControl.randomEventState === 1) {
-            this.destroy(); // Remove this Enemy
-            GameControl.endRandomEvent();
-        }
+        // Update or change position according to velocity events
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
 
-        // Chance for Enemy to turn gold (based on difficulty level)
-        if (["normal", "hard"].includes(GameEnv.difficulty)) {
-            if (Math.random() < 0.00001) {
-                this.canvas.style.filter = 'brightness(1000%)'; // Gold effect
-                this.immune = 1; // Make Enemy immune
-            }
-        }
-
-        // Apply unique textures based on difficulty
-        if (GameEnv.difficulty === "hard") {
-            this.canvas.style.filter = "invert(100%)"; // Invert texture
-            this.canvas.style.scale = 1.25; // Scale up
-            this.immune = 1; // Make Enemy immune
-        } else if (GameEnv.difficulty === "impossible") {
-            this.canvas.style.filter = 'brightness(1000%)'; // Bright gold effect
-            this.immune = 1; // Make Enemy immune
-        }
-
-        // Randomly trigger a jump (10% chance per frame)
-        if (Math.random() < 0.1) {
-            this.jump();
-        }
-
-        this.playerBottomCollision = false; // Reset collision state
+        // Ensure the object stays within the canvas boundaries
+        this.stayWithinCanvas();
     }
 
     /**
-     * Reverse the direction of the Enemy's movement.
+     * stayWithinCanvas method ensures that the object stays within the boundaries of the canvas.
      */
-    reverseDirection() {
-        this.speed = -this.speed; // Invert speed to reverse movement
-    }
-
-    /**
-     * Handle collisions with other game objects.
-     */
-    collisionAction() {
-        const other = this.collisionData.touchPoints.other;
-
-        if (other.id === "finishline") {
-            if (other.left || other.right) {
-                this.reverseDirection(); // Bounce back
-            }
+    stayWithinCanvas() {
+        // Bottom of the canvas
+        if (this.position.y + this.height > GameEnv.innerHeight) {
+            this.position.y = GameEnv.innerHeight - this.height;
+            this.velocity.y = 0;
         }
-
-        if (other.id === "wall") {
-            if (other.left || other.right) {
-                this.reverseDirection(); // Bounce back
-            }
+        // Top of the canvas
+        if (this.position.y < 0) {
+            this.position.y = 0;
+            this.velocity.y = 0;
         }
-
-        if (other.id === "player") {
-            // If the player lands on top of the Enemy and it's not immune
-            if (other.bottom && this.immune === 0) {
-                GameEnv.enemyBounce = true; // Player bounces on collision
-                this.explode(); // Destroy the Enemy
-                GameEnv.playSound("enemyDeath");
-
-                setTimeout(() => {
-                    this.destroy(); // Remove the Enemy
-                }, 1500);
-            } else {
-                // If the player collides from the side or bottom, the player dies
-                this.triggerPlayerDeath();
-            }
+        // Right of the canvas
+        if (this.position.x + this.width > GameEnv.innerWidth) {
+            this.position.x = GameEnv.innerWidth - this.width;
+            this.velocity.x = 0;
         }
-
-        if (other.id === "enemy") {
-            if (GameEnv.difficulty !== "impossible" && (other.left || other.right)) {
-                this.reverseDirection(); // Bounce back on collision
-            }
-        }
-
-        if (other.id === "jumpPlatform") {
-            if (other.left || other.right) {
-                this.reverseDirection(); // Bounce back
-            }
+        // Left of the canvas
+        if (this.position.x < 0) {
+            this.position.x = 0;
+            this.velocity.x = 0;
         }
     }
 
     /**
-     * Trigger the player's death sequence.
+     * Check if Player is within a certain distance of the Enemy.
+     * if so return True else False.
+     * @returns {boolean} True if Player is within a certain distance of the Enemy, False otherwise.
      */
-    triggerPlayerDeath() {
-        if (typeof GameEnv.triggerPlayerDeath === "function") {
-            GameEnv.triggerPlayerDeath(); // Call the death logic
+    collisionChecks() {
+        for (var gameObj of GameEnv.gameObjects) {
+            if (gameObj.canvas && this != gameObj) {
+                this.isCollision(gameObj);
+                if (this.collisionData.hit && this.collisionData.touchPoints.other.id == 'Chill Guy') {
+                    return true;                    
+                }
+            }
         }
+        return false
     }
 
     /**
-     * Create an explosion effect when the Enemy is destroyed.
+     * Handle collision event.
+     * This method must be implemented by subclasses.
+     * @abstract
      */
-    explode() {
-        const shards = 10; // Number of shards
+    handleCollisionEvent() {
+        // To be implemented by subclasses
+        throw new Error("Method 'collisionAction()' must be implemented");
+    }
+
+    /**
+     * check Proximity of the npc with player.
+     * This method must be implemented by subclasses.
+     * @abstract
+     */
+    checkProximityToPlayer() {
+        // To be implemented by subclasses
+        throw new Error("Method 'jump()' must be implemented.");
+    }
+
+    /**
+    * Create an explosion effect when the Enemy is destroyed.
+    * @param {number} x - The x-coordinate of the explosion.
+    * @param {number} y - The y-coordinate of the explosion.
+    */
+    explode(x,y) {
+        const shards = 20; // Number of shards
         for (let i = 0; i < shards; i++) {
             const shard = document.createElement('div');
             shard.style.position = 'absolute';
             shard.style.width = '5px';
             shard.style.height = '5px';
             shard.style.backgroundColor = 'brown'; // Color of the shards
-            shard.style.left = `${this.x}px`;
-            shard.style.top = `${this.y}px`;
+            shard.style.left =  `${x}px`;
+            shard.style.top = `${GameEnv.top+y}px`;
             this.canvas.parentElement.appendChild(shard); // Add shard to the canvas
 
             const angle = Math.random() * 2 * Math.PI;
@@ -210,14 +134,17 @@ export class Enemy extends Character {
                 shard.remove(); // Remove shard after animation
             }, 1000);
         }
-        this.canvas.style.opacity = 0; // Make the Enemy disappear
+        //this.canvas.style.opacity = 0; // Make the Bat disappear
     }
 
     /**
-     * Handle the Enemy's jump behavior (to be implemented).
+     * jump the npc based on the collision.
+     * This method must be implemented by subclasses.
+     * @abstract
      */
     jump() {
-        // Implement jump logic here
+        // To be implemented by subclasses
+        throw new Error("Method 'jump()' must be implemented.");
     }
 }
 

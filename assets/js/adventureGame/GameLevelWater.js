@@ -3,6 +3,7 @@ import Background from './Background.js';
 import Npc from './Npc.js';
 import Character from './Character.js';
 import Player from './Player.js';
+import Exit from './exit.js';
 
 class GameLevelWater {
   constructor(path) {
@@ -22,7 +23,7 @@ class GameLevelWater {
     };
 
     const sprite_src_octopus = path + "/images/gamify/octopus.png"; // be sure to include the path
-    const OCTOPUS_SCALE_FACTOR = 5;
+    const OCTOPUS_SCALE_FACTOR = 10;
     const sprite_data_octopus = {
         id: 'Octopus',
         greeting: "Hi I am Octopus, the water wanderer. I am looking for wisdome and adventure!",
@@ -44,8 +45,8 @@ class GameLevelWater {
     // NPC Data for Byte Nomad (Smaller Version)
     const sprite_src_nomad = path + "/images/gamify/animwizard.png"; // be sure to include the path
     const sprite_data_nomad = {
-        id: 'Javanomad',
-        greeting: "Hi I am Java Nomad, the Java mascot.  I am very happy to spend some linux shell time with you!",
+        id: 'GameWizard',
+        greeting: "Hi I am your game wizard.  I am very happy to share my knowledge with you! Press key 'e' or 'u' for learning",
         src: sprite_src_nomad,
         SCALE_FACTOR: 10,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 100,
@@ -55,6 +56,7 @@ class GameLevelWater {
         down: {row: 1, start: 0, columns: 6 },  // This is the stationary npc, down is default 
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
         // Linux command quiz
+        /*
         quiz: { 
           title: "Jupyter Notebook Command Quiz",
           questions: [
@@ -70,6 +72,30 @@ class GameLevelWater {
             "Which Java collection allows key-value pairs?\n1. ArrayList\n2. HashMap\n3. HashSet\n4. LinkedList"
           ] 
         }
+        */
+        quiz: { 
+          title: "Wizard Quiz",
+          questions: [ "What do you wish to earn today?\n1. Wisdom\n2. Gold\n3. Power\n4. Fame",
+                       "How do you plan to earn it?\n1. Study\n2. Work\n3. Steal\n4. Cheat",
+                       "What will you do with it?\n1. Share\n2. Keep\n3. Spend\n4. Waste",
+                       "Why do you seek it?\n1. Knowledge\n2. Wealth\n3. Control\n4. Attention",
+                       "When will you know you have it?\n1. Never\n2. Always\n3. Sometimes\n4. Later"
+          ]
+        }
+      };
+
+      const sprite_src_exit = path + "/images/gamify/wizard.png";
+      console.log(`Loading NPC sprite from: ${sprite_src_exit}`); // Log image path
+      const sprite_data_exit = {
+        id: 'Exit',
+        src: sprite_src_exit,
+        SCALE_FACTOR: 15,
+        ANIMATION_RATE: 50,
+        pixels: { height: 185, width: 163 },
+        INIT_POSITION: { x: width * 0.85 , y: height * 0.4 },
+        orientation: { rows: 1, columns: 1 },
+        down: { row: 0, start: 0, columns: 1 },
+        hitbox: { widthPercentage: 0.1, heightPercentage: 0.1},
       };
 
 
@@ -78,6 +104,7 @@ class GameLevelWater {
       { class: Background, data: image_data_water },
       { class: Player, data: sprite_data_octopus },
       { class: Npc, data: sprite_data_nomad },
+      { class: Exit, data: sprite_data_exit },
     ];
   }
 }

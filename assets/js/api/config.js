@@ -1,4 +1,4 @@
-export const baseurl = "/portfolio_2025";
+export const baseurl = "/Avantika_2025_2";
 
 export var pythonURI;
 if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
@@ -14,6 +14,8 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
 } else {
     javaURI = "https://spring2025.nighthawkcodingsociety.com";
 }
+//overwrite javaURI location as localhost is not working
+//javaURI = "https://spring2025.nighthawkcodingsociety.com";
 
 export const fetchOptions = {
     method: 'GET',  // Default method is GET
