@@ -15,14 +15,14 @@ class GameLevelWater {
     let height = GameEnv.innerHeight;
 
     // Background data
-    const image_src_water = path + "/images/gamify/deepseadungeon.jpeg";
+    const image_src_water = path + "/images/gamify/End.png";
     const image_data_water = {
         id: 'Water',
         src: image_src_water,
         pixels: {height: 597, width: 340}
     };
 
-    const sprite_src_octopus = path + "/images/gamify/octopus.png"; // be sure to include the path
+    const sprite_src_octopus = path + "/images/gamify/you.png"; // be sure to include the path
     const OCTOPUS_SCALE_FACTOR = 10;
     const sprite_data_octopus = {
         id: 'Octopus',
@@ -33,21 +33,22 @@ class GameLevelWater {
         ANIMATION_RATE: 50,
         INIT_POSITION: { x: 0, y: height - (height/OCTOPUS_SCALE_FACTOR) }, 
         pixels: {height: 250, width: 167},
-        orientation: {rows: 3, columns: 2 },
-        down: {row: 0, start: 0, columns: 2 },
-        left: {row: 1, start: 0, columns: 2 },
-        right: {row: 1, start: 0, columns: 2 },
-        up: {row: 0, start: 0, columns: 2},
-        hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
-        keypress: { up: 87, left: 65, down: 83, right: 68 } // W, A, S, D
-    };
+        orientation: { rows: 4, columns: 3 },
+      down: { row: 0, start: 0, columns: 3 },
+      left: { row: 1, start: 0, columns: 3 },
+      right: { row: 2, start: 0, columns: 3 },
+      up: { row: 3, start: 0, columns: 3 },
+      hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
+      keypress: { up: 87, left: 65, down: 83, right: 68 } // W, A, S, D
+    }; 
+  
 
     // NPC Data for Byte Nomad (Smaller Version)
-    const sprite_src_nomad = path + "/images/gamify/animwizard.png"; // be sure to include the path
-    const sprite_data_nomad = {
+    const sprite_src_animwizard = path + "/images/gamify/animwizard.png"; // be sure to include the path
+    const sprite_data_animwizard = {
         id: 'GameWizard',
         greeting: "Hi I am your game wizard.  I am very happy to share my knowledge with you! Press key 'e' or 'u' for learning",
-        src: sprite_src_nomad,
+        src: sprite_src_animwizard,
         SCALE_FACTOR: 10,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 100,
         pixels: {height: 307, width: 813},
@@ -103,7 +104,7 @@ class GameLevelWater {
     this.objects = [
       { class: Background, data: image_data_water },
       { class: Player, data: sprite_data_octopus },
-      { class: Npc, data: sprite_data_nomad },
+      { class: Npc, data: sprite_data_animwizard },
       { class: Exit, data: sprite_data_exit },
     ];
   }
