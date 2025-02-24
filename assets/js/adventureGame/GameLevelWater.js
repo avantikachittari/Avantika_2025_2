@@ -3,7 +3,7 @@ import Background from './Background.js';
 import Npc from './Npc.js';
 import Character from './Character.js';
 import Player from './Player.js';
-import Exit from './exit.js';
+import Exit from './Exit.js';
 
 class GameLevelWater {
   constructor(path) {

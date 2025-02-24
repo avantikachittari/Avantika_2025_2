@@ -4,7 +4,7 @@ import Player from './Player.js';
 import Npc from './Npc.js';
 import Bat from './Bat.js';
 import Spider from './Spider.js';
-import Exit from './exit.js';
+import Exit from './Exit.js';
 //import Spider from './Spider.js';
 
 class GameLevelDesert {
@@ -93,7 +93,7 @@ class GameLevelDesert {
     const sprite_src_robot = path + "/images/rpg/fishies.png"; // be sure to include the path
     const sprite_data_robot = {
         id: 'Fish',
-        greeting: "Hi I am your game wizard.  I am very happy to share my knowledge with you! \nWant to get out of this cave? You must run fast so the bat wont kill you and make sure you don't get too close to the Spider ;) \nPress key 'e' or 'u' for learning",
+        greeting: "Hi I am your game Fish.  I am very happy to share my knowledge with you! \nWant to get out of this cave? You must run fast so the bat wont kill you and make sure you don't get too close to the Spider ;) \nPress key 'e' or 'u' for learning",
         src: sprite_src_robot,
         SCALE_FACTOR: 16,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 100,
