@@ -122,7 +122,7 @@ class GameLevelDesert {
     this.objects = [
       { class: Background, data: image_data_desert },
       { class: Player, data: sprite_data_chillguy },
-      { class: Npc, data: sprite_data_bat },
+      { class: Bat, data: sprite_data_bat },
       { class: Spider, data: sprite_data_spider },
       { class: Npc, data: sprite_data_robot },
       { class: Exit, data: sprite_data_exit },
