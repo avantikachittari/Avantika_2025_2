@@ -14,7 +14,7 @@ class GameLevelDesert {
 
 
     // Background data
-    const image_src_desert = path + "/images/gamify/cave.png"; // be sure to include the path
+    const image_src_desert = path + "/images/gamify/Cave.png"; // be sure to include the path
     const image_data_desert = {
         name: 'Desert',
         greeting: "Welcome to the cave!  It is wet and must!",
