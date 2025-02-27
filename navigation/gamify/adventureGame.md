@@ -111,7 +111,9 @@ permalink: /gamify/adventureGame
 
     const path = "{{site.baseurl}}";
     //GameControl.start(path);
-    new GameControl(path).start();
+    const gameControl = new GameControl(path); // Correctly instantiate GameControl
+    //new GameControl(path).start();
+    gameControl.start();
     GameControl.startTimer();
     Prompt.initializePrompt();
 
