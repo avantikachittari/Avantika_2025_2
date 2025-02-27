@@ -3,10 +3,10 @@ import GameEnv from './GameEnv.js';
 import Player from './Player.js';
 
 class Enemy extends Character {
-    constructor(data = null) {
-        super(data);
+    constructor(data = null, gameEnv = null) {
+        super(data, gameEnv);
         this.playerFound = false;
-        this.playerDestroyed = false;
+        this.playerDestroyed = false;     
     }
 
     /**
@@ -37,8 +37,8 @@ class Enemy extends Character {
      */
     stayWithinCanvas() {
         // Bottom of the canvas
-        if (this.position.y + this.height > GameEnv.innerHeight) {
-            this.position.y = GameEnv.innerHeight - this.height;
+        if (this.position.y + this.height > this.gameEnv.innerHeight) {
+            this.position.y = this.gameEnv.innerHeight - this.height;
             this.velocity.y = 0;
         }
         // Top of the canvas
@@ -47,8 +47,8 @@ class Enemy extends Character {
             this.velocity.y = 0;
         }
         // Right of the canvas
-        if (this.position.x + this.width > GameEnv.innerWidth) {
-            this.position.x = GameEnv.innerWidth - this.width;
+        if (this.position.x + this.width > this.gameEnv.innerWidth) {
+            this.position.x = this.gameEnv.innerWidth - this.width;
             this.velocity.x = 0;
         }
         // Left of the canvas
@@ -64,7 +64,7 @@ class Enemy extends Character {
      * @returns {boolean} True if Player is within a certain distance of the Enemy, False otherwise.
      */
     collisionChecks() {
-        for (var gameObj of GameEnv.gameObjects) {
+        for (var gameObj of this.gameEnv.gameObjects) {
             if (gameObj.canvas && this != gameObj) {
                 this.isCollision(gameObj);
                 if (this.collisionData.hit && this.collisionData.touchPoints.other.id == 'Chill Guy') {
@@ -109,7 +109,7 @@ class Enemy extends Character {
             shard.style.height = '5px';
             shard.style.backgroundColor = 'brown'; // Color of the shards
             shard.style.left =  `${x}px`;
-            shard.style.top = `${GameEnv.top+y}px`;
+            shard.style.top = `${this.gameEnv.top+y}px`;
             this.canvas.parentElement.appendChild(shard); // Add shard to the canvas
 
             const angle = Math.random() * 2 * Math.PI;

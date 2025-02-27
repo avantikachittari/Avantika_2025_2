@@ -4,15 +4,19 @@ import Npc from './Npc.js';
 import Character from './Character.js';
 import Player from './Player.js';
 import Exit from './Exit.js';
+import Quiz from './Quiz.js';
+import GameControl from './GameControl.js';
+import GameLevelStarWars from './GameLevelStarWars.js';
 
 class GameLevelWater {
-  constructor(path) {
+  constructor(gameEnv) {
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
 
     // Values dependent on GameEnv.create()
-    let width = GameEnv.innerWidth;
-    let height = GameEnv.innerHeight;
+    let width = gameEnv.innerWidth;
+    let height = gameEnv.innerHeight;
+    let path = gameEnv.path;    
 
     // Background data
     const image_src_water = path + "/images/gamify/End.png";
@@ -20,6 +24,29 @@ class GameLevelWater {
         id: 'Water',
         src: image_src_water,
         pixels: {height: 597, width: 340}
+    };
+
+    // Player Data
+    const sprite_src_chillguy = path + "/images/gamify/you.png";
+    console.log(`Loading player sprite from: ${sprite_src_chillguy}`); // Log image path
+    const CHILLGUY_SCALE_FACTOR = 5;
+    const sprite_data_chillguy = {
+      id: 'Chill Guy',
+      name: 'mainplayer',
+      greeting: "Hi I am Chill Guy, the water wanderer. I am looking for wisdome and adventure!",
+      src: sprite_src_chillguy,
+      SCALE_FACTOR: CHILLGUY_SCALE_FACTOR,
+      STEP_FACTOR: 1000,
+      ANIMATION_RATE: 50,
+      INIT_POSITION: { x: 0, y: height - (height / CHILLGUY_SCALE_FACTOR) },
+      pixels: { height: 256, width: 192 },
+      orientation: { rows: 4, columns: 3 },
+      down: { row: 0, start: 0, columns: 3 },
+      left: { row: 1, start: 0, columns: 3 },
+      right: { row: 2, start: 0, columns: 3 },
+      up: { row: 3, start: 0, columns: 3 },
+      hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
+      keypress: { up: 87, left: 65, down: 83, right: 68 } // W, A, S, D
     };
 
     const sprite_src_octopus = path + "/images/gamify/you.png"; // be sure to include the path
@@ -82,7 +109,22 @@ class GameLevelWater {
                        "Why do you seek it?\n1. Knowledge\n2. Wealth\n3. Control\n4. Attention",
                        "When will you know you have it?\n1. Never\n2. Always\n3. Sometimes\n4. Later"
           ]
-        }
+        },
+        reaction: function() {
+          alert(sprite_data_animwizard.greeting);
+        },
+        interact: function() {
+          // Set a primary game reference from the game environment
+          let primaryGame = gameEnv.gameControl;
+
+          console.log('pause primary game');
+          // Pause the primary game 
+          primaryGame.pause();
+
+          let quiz = new Quiz(gameEnv); // Create a new Quiz instance
+          quiz.initialize();
+          quiz.openPanel(sprite_data_animwizard.quiz);
+          }
       };
 
       const sprite_src_exit = path + "/images/gamify/wizard.png";
@@ -97,15 +139,62 @@ class GameLevelWater {
         orientation: { rows: 1, columns: 1 },
         down: { row: 0, start: 0, columns: 1 },
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.1},
+      
       };
 
+    // NPC Data for R2D2
+    const sprite_src_r2d2 = path + "/images/gamify/r2_idle.png"; // be sure to include the path
+    const sprite_greet_r2d2 = "Hi I am R2D2.  Leave this planet and help defent the rebel base on Hoth!";
+    console.log(`Loading NPC sprite from: ${sprite_src_r2d2}`); // Log image path
+    const sprite_data_r2d2 = {
+      id: 'StarWarsR2D2',
+      greeting: sprite_greet_r2d2,
+      src: sprite_src_r2d2,
+      SCALE_FACTOR: 8,  // Adjust this based on your scaling needs
+      ANIMATION_RATE: 100,
+      pixels: {width: 505, height: 223},
+      INIT_POSITION: { x: (width * 0.16), y: (height * 0.52)}, // Adjusted position
+      orientation: {rows: 1, columns: 3 },
+      down: {row: 0, start: 0, columns: 3 },  // This is the stationary npc, down is default 
+      hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
+      /* Reaction function
+      *  This function is called when the player interacts with the NPC
+      *  It displays an alert with the greeting message
+      */
+      reaction: function() {
+        alert(sprite_greet_r2d2);
+      },      
+
+      /* Interact function
+      *  This function is called when the player interacts with the NPC
+      *  It pauses the main game, creates a new GameControl instance with the StarWars level,
+      */
+      interact: function() {
+        // Set a primary game reference from the game environment
+        let primaryGame = gameEnv.gameControl;
+        // Define the game in game level
+        let levelArray = [GameLevelStarWars];
+        // Define a new GameControl instance with the StarWars level
+        let gameInGame = new GameControl(path,levelArray);
+        // Pause the primary game 
+        primaryGame.pause();
+        // Start the game in game
+        gameInGame.start();
+        // Setup "callback" function to allow transition from game in gaame to the underlying game
+        gameInGame.gameOver = function() {
+          // Call .resume on primary game
+          primaryGame.resume();
+        }
+      } 
+    }; 
 
     // List of objects definitions for this level
-    this.objects = [
+    this.classes = [
       { class: Background, data: image_data_water },
-      { class: Player, data: sprite_data_octopus },
+      { class: Player, data: sprite_data_chillguy },
       { class: Npc, data: sprite_data_animwizard },
       { class: Exit, data: sprite_data_exit },
+      { class: Npc, data: sprite_data_r2d2 },
     ];
   }
 }

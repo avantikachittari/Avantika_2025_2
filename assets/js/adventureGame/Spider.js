@@ -3,8 +3,8 @@ import GameEnv from './GameEnv.js';
 import Player from './Player.js';
 
 class Spider extends Enemy {
-    constructor(data = null) {
-        super(data);
+    constructor(data = null, gameEnv = null) {  
+        super(data, gameEnv);
     }
    
 

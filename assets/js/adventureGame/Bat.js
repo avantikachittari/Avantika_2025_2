@@ -3,8 +3,8 @@ import GameEnv from './GameEnv.js';
 import Player from './Player.js';
 
 class Bat extends Enemy {
-    constructor(data = null) {
-        super(data);
+    constructor(data = null, gameEnv = null) {
+        super(data, gameEnv);
     }
    
 
@@ -16,7 +16,7 @@ class Bat extends Enemy {
     checkProximityToPlayer() {
         //this.velocity.x=10
         // Filter all Player objects from the game environment
-        var players = GameEnv.gameObjects.filter(obj => obj instanceof Player);
+        var players = this.gameEnv.gameObjects.filter(obj => obj instanceof Player);
         var bat = this;
         var names = [];
 
@@ -40,16 +40,16 @@ class Bat extends Enemy {
                     // The distance is less than 10 pixels
                      if (distance > 10) {
                         if(deltax>0){
-                            this.velocity.x = GameEnv.innerWidth * 0.001 
+                            this.velocity.x = this.gameEnv.innerWidth * 0.0005 
                         }
                         else{
-                            this.velocity.x = GameEnv.innerWidth * -0.001 
+                            this.velocity.x = this.gameEnv.innerWidth * -0.0005 
                         }
                         if(deltay>0){
-                            this.velocity.y = GameEnv.innerHeight * 0.001 
+                            this.velocity.y = this.gameEnv.innerHeight * 0.0005
                         }
                         else{
-                            this.velocity.y = GameEnv.innerHeight * -0.001 
+                            this.velocity.y = this.gameEnv.innerHeight * -0.0005 
                         }
                         //this.velocity.x = deltax/200
                         //this.velocity.y = deltay/200
@@ -75,7 +75,7 @@ class Bat extends Enemy {
 
     handleCollisionEvent() {
         //extract player object
-        var player = GameEnv.gameObjects.find(obj => obj instanceof Player);
+        var player = this.gameEnv.gameObjects.find(obj => obj instanceof Player);
         //collided object is player
         if (player.id = this.collisionData.touchPoints.other.id) {
             

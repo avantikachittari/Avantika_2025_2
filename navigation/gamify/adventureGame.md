@@ -110,7 +110,8 @@ permalink: /gamify/adventureGame
     import { getStats } from '{{site.baseurl}}/assets/js/adventureGame/StatsManager.js';
 
     const path = "{{site.baseurl}}";
-    GameControl.start(path);
+    //GameControl.start(path);
+    new GameControl(path).start();
     GameControl.startTimer();
     Prompt.initializePrompt();
 
