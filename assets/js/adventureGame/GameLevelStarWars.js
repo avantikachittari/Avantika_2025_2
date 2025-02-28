@@ -11,7 +11,7 @@ class GameLevelStarWars {
     let path = gameEnv.path;
 
     // Background data
-    const image_src_atat = path + "/images/gamify/atat_background.png"; // be sure to include the path
+    const image_src_atat = path + "/images/gamify/Space.png"; // be sure to include the path
     const image__data_atat = {
         id: 'AT-AT-Background',
         src: image_src_atat,
@@ -19,7 +19,7 @@ class GameLevelStarWars {
     };
 
     // Player data for snowspeeder
-    const sprite_src_snowspeeder = path + "/images/gamify/snowspeeder_sprite.png"; // be sure to include the path
+    const sprite_src_snowspeeder = path + "/images/gamify/Astronaut.png"; // be sure to include the path
     const SNOWSPEEDER_SCALE_FACTOR = 5;
     const sprite_data_snowspeeder = {
         id: 'Snowspeeder',
@@ -29,21 +29,21 @@ class GameLevelStarWars {
         STEP_FACTOR: 1000,
         ANIMATION_RATE: 50,
         INIT_POSITION: { x: 0, y: 0 }, 
-        pixels: {height: 577, width: 433},
+        pixels: {height: 865, width: 1535},
         orientation: {rows: 1, columns: 1 },
-        down: {row: 0, start: 0, columns: 1, rotate: -Math.PI/2 },
+        down: {row: 0, start: 0, columns: 1,},
         left: {row: 0, start: 0, columns: 1 },
-        right: {row: 0, start: 0, columns: 1, rotate: Math.PI },
-        up: {row: 0, start: 0, columns: 1, rotate: Math.PI/2 },
+        right: {row: 0, start: 0, columns: 1},
+        up: {row: 0, start: 0, columns: 1 },
         hitbox: { widthPercentage: 0.45, heightPercentage: 0.2 },
         keypress: { up: 87, left: 65, down: 83, right: 68 }, // W, A, S, D
         reaction: function() {
-          alert("We just got hit by a projectile!");
+          alert("We just got hit by a meteor!");
         }
     };
 
     // NPC Data for Turret Anti-Air
-    const sprite_src_turret = path + "/images/gamify/turret_aa.png"; // be sure to include the path
+    const sprite_src_turret = path + "/images/gamify/Scaryalien.png"; // be sure to include the path
     const TURRET_SCALE_FACTOR = 3;
     const sprite_data_turret = {
       id: 'Turret-Anti-Air',
@@ -51,7 +51,7 @@ class GameLevelStarWars {
       src: sprite_src_turret,
       SCALE_FACTOR: TURRET_SCALE_FACTOR,  // Adjust this based on your scaling needs
       ANIMATION_RATE: 100,
-      pixels: {width: 562, height: 444},
+      pixels: {width: 771, height: 895},
       INIT_POSITION: { x: width - (height/TURRET_SCALE_FACTOR), y: height - .82*(height/TURRET_SCALE_FACTOR) }, 
       orientation: {rows: 1, columns: 1 },
       down: {row: 0, start: 0, columns: 1 },  // This is the stationary npc, down is default 
@@ -59,16 +59,16 @@ class GameLevelStarWars {
     };
 
     // Laser data, temporary sprite for testing
-    const sprite_src_laser = path + "/images/gamify/laser_bolt.png"; // be sure to include the path
+    const sprite_src_laser = path + "/images/gamify/Rock.png"; // be sure to include the path
     const sprite_data_laser1 = {
         id: 'AT-AT-Laser-1',
         greeting: "Simulate explosive action!",
         // define image/sprite data
         src: sprite_src_laser,
-        pixels: {height: 500, width: 500}, // height and width of the image
+        pixels: {height: 763, width: 994}, // height and width of the image
         orientation: {rows: 1, columns: 1 }, // normalized rows and columns in the sprite
         // define size, position, adjustments for hitbox
-        SCALE_FACTOR: 30,  // Start small
+        SCALE_FACTOR: 35,  // Start small
         INIT_POSITION_RATIO: { x: 1 / 1.78, y: 1 / 3.3 }, // Ratios for initial position
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
         // define animation properties

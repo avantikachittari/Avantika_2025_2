@@ -143,19 +143,19 @@ class GameLevelDesert {
     //const spider = new Spider(canvas, sprite_src_spider, sprite_data_spider, 0.25, 0.25, 'Spider', 50);
 
     // NPC Data for R2D2
-    const sprite_src_r2d2 = path + "/images/gamify/r2_idle.png"; // be sure to include the path
-    const sprite_greet_r2d2 = "Hi I am R2D2.  Leave this planet and help defent the rebel base on Hoth!";
+    const sprite_src_r2d2 = path + "/images/gamify/Hole.png"; // be sure to include the path
+    const sprite_greet_r2d2 = "Welcome to the black hole... press 'e' to enter and 'esc' to exit";
     console.log(`Loading NPC sprite from: ${sprite_src_r2d2}`); // Log image path
     const sprite_data_r2d2 = {
       id: 'StarWarsR2D2',
       greeting: sprite_greet_r2d2,
       src: sprite_src_r2d2,
-      SCALE_FACTOR: 8,  // Adjust this based on your scaling needs
+      SCALE_FACTOR: 5,  // Adjust this based on your scaling needs
       ANIMATION_RATE: 100,
-      pixels: {width: 505, height: 223},
+      pixels: {width: 490, height: 423},
       INIT_POSITION: { x: (width * 0.16), y: (height * 0.52)}, // Adjusted position
-      orientation: {rows: 1, columns: 3 },
-      down: {row: 0, start: 0, columns: 3 },  // This is the stationary npc, down is default 
+      orientation: {rows: 1, columns: 1 },
+      down: {row: 0, start: 0, columns: 1 },  // This is the stationary npc, down is default 
       hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
       /* Reaction function
       *  This function is called when the player interacts with the NPC
