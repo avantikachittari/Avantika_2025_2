@@ -108,12 +108,19 @@ hide: true
             <a href="https://github.com/avantikachittari/Avantika_2025_2/tree/main/_layouts/Mathematic_Expressions">Mathematical Expressions</a>
         </div>
     </div>
-    
-   <style>
-    .game-ideas {
-        color: black; /* Set font color to black */
-    }
-</style>
+
+
+  <div class="container">
+        <h4>PBL blogs</h4>
+        <p>Check out my completed assignments:</p>
+        <div class="buttons-container">
+            <a href="{{site.baseurl}}/PBL/2025-03-01-Input-And-Output.ipynb/">Input/Output</a>
+            <a href="{{site.baseurl}}/PBL/2025-03-01-Classes.ipynb/">Classes</a>
+            <a href="{{site.baseurl}}/PBL/2025-02-28-Software-Development-Lifecycle.ipynb/mak">Software development cycle</a>
+        </div>
+    </div>
+
+
 
 <div class="container game-ideas">
     <h4>Game Ideas</h4>
