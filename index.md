@@ -125,7 +125,7 @@ hide: true
         <div class="buttons-container">
             <a href="{{site.baseurl}}/JavaScriptBasics/2025-2-28-Control-Structures.ipynb/">Control Structures</a>
             <a href="{{site.baseurl}}/JavaScriptBasics/2025-2-28-Data-Types.ipynb/">Data Types</a>
-            <a href="{{site.baseurl}}/PBL/2025-02-28-Software-Development-Lifecycle.ipynb/mak">Software development cycle</a>
+            <a href="{{site.baseurl}}/JavaScriptBasics/2025-2-28-Operators.ipynb/">Operators</a>
         </div>
     </div>
 
