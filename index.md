@@ -119,6 +119,15 @@ hide: true
             <a href="{{site.baseurl}}/PBL/2025-02-28-Software-Development-Lifecycle.ipynb/mak">Software development cycle</a>
         </div>
     </div>
+      <div class="container">
+        <h4>Student Lesson blog</h4>
+        <p>Check out my completed assignments:</p>
+        <div class="buttons-container">
+            <a href="{{site.baseurl}}/JavaScriptBasics/2025-2-28-Control-Structures.ipynb/">Control Structures</a>
+            <a href="{{site.baseurl}}/PBL/2025-03-01-Classes.ipynb/">Classes</a>
+            <a href="{{site.baseurl}}/PBL/2025-02-28-Software-Development-Lifecycle.ipynb/mak">Software development cycle</a>
+        </div>
+    </div>
 
 
 
