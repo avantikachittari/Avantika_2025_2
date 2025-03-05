@@ -128,7 +128,6 @@ hide: true
             <a href="{{site.baseurl}}/JavaScriptBasics/2025-2-28-Operators.ipynb/">Operators</a>
         </div>
     </div>
- </div>
       <div class="container">
         <h4>Blogs</h4>
         <p>Check out my completed assignments:</p>
