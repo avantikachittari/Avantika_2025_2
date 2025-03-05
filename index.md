@@ -135,7 +135,8 @@ hide: true
         <div class="buttons-container">
             <a href="{{site.baseurl}}/Blogs/AdventureBlog.ipynb/">Adventure Game Blog</a>
             <a href="{{site.baseurl}}/Blogs/SelfGrade.ipynb/">Self Grade</a>
-            <a href="{{site.baseurl}}/Blogs/Retrospect/">Retrospect</a>
+            <a href="{{site.baseurl}}/Blogs/NightAtTheMuseum.ipynb/">N@TM</a>
+            <a href="{{site.baseurl}}/Blogs/Retrospect.ipynb/">Retrospect</a>
         </div>
     </div>
 
