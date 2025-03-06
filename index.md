@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Student Home
+search_exclude: false
 description: Home Page
 hide: true
 ---
@@ -86,19 +87,19 @@ hide: true
     </div>
     
     <div class="container">
-        <h4>My Projects</h4>
+        <h4>CSSE1: My RPG Game Projects</h4>
         <p>Explore my latest coding projects:</p>
         <div class="buttons-container">
-            <a href="https://avantikachittari.github.io/Avantika_2025_2/snake/">Snake Game</a>
-            <a href="https://avantikachittari.github.io/Avantika_2025_2/rpg/">RPG</a>
-            <a href="https://avantikachittari.github.io/Avantika_2025_2/rpgv1/">RPGv1</a>
-            <a href="https://avantikachittari.github.io/Avantika_2025_2/rpgv2/">RPGv2 Modified</a>
-            <a href="https://avantikachittari.github.io/Avantika_2025_2/rpgv3/">RPGv3</a>
+            <a href="{{site.baseurl}}/nav/snake">Snake Game</a>
+            <a href="{{site.baseurl}}/rpg/">RPG</a>
+            <a href="{{site.baseurl}}/rpgv1/">RPGv1</a>
+            <a href="{{site.baseurl}}/rpgv2/">RPGv2 Modified</a>
+            <a href="{{site.baseurl}}/rpgv3/">RPGv3</a>
         </div>
     </div>
     
     <div class="container">
-        <h4>My Homework</h4>
+        <h4>CSSE1: My Homework</h4>
         <p>Check out my completed assignments:</p>
         <div class="buttons-container">
             <a href="https://github.com/avantikachittari/Avantika_2025_2/tree/main/_notebooks/Sprint2/Data_Abstractions">Data Abstraction</a>
@@ -111,16 +112,16 @@ hide: true
 
 
   <div class="container">
-        <h4>PBL blogs</h4>
+        <h4>CSSE2: Project Based Learning Blogs</h4>
         <p>Check out my completed assignments:</p>
         <div class="buttons-container">
             <a href="{{site.baseurl}}/PBL/2025-03-01-Input-And-Output.ipynb/">Input/Output</a>
             <a href="{{site.baseurl}}/PBL/2025-03-01-Classes.ipynb/">Classes</a>
-            <a href="{{site.baseurl}}/PBL/2025-02-28-Software-Development-Lifecycle.ipynb/mak">Software development cycle</a>
+            <a href="{{site.baseurl}}/PBL/2025-02-28-Lifecycle.ipynb/">Software development cycle</a>
         </div>
     </div>
       <div class="container">
-        <h4>Student Lesson blog</h4>
+        <h4>CSSE2: Student Lesson blog</h4>
         <p>Check out my completed assignments:</p>
         <div class="buttons-container">
             <a href="{{site.baseurl}}/JavaScriptBasics/2025-2-28-Control-Structures.ipynb/">Control Structures</a>
@@ -129,7 +130,7 @@ hide: true
         </div>
     </div>
       <div class="container">
-        <h4>Blogs</h4>
+        <h4>CSSE2: Adventure Game Blogs</h4>
         <p>Check out my completed assignments:</p>
         <div class="buttons-container">
             <a href="{{site.baseurl}}/Blogs/AdventureBlog.ipynb/">Adventure Game Blog</a>
